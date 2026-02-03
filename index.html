@@ -4,9 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Our Love Story ❤️</title>
+<title>Khushi ❤️</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;500&display=swap" rel="stylesheet">
 
 <style>
 
@@ -19,69 +19,17 @@ font-family:'Poppins',sans-serif;
 
 body{
 background:black;
-overflow:hidden;
 color:white;
+overflow:hidden;
 }
 
-/* LOADER */
+/* NIGHT SKY */
 
-#loader{
+canvas{
 position:fixed;
-height:100%;
-width:100%;
-background:black;
-display:flex;
-justify-content:center;
-align-items:center;
-z-index:9999;
-}
-
-.loader-text{
-font-family:'Great Vibes';
-font-size:55px;
-animation:fade 2s infinite alternate;
-}
-
-@keyframes fade{
-from{opacity:.3;}
-to{opacity:1;}
-}
-
-/* BACKGROUND */
-
-.bg{
-position:fixed;
-width:100%;
-height:100%;
-background:linear-gradient(270deg,#ff4e8a,#6a11cb,#ff4e8a);
-background-size:600% 600%;
-animation:gradient 15s ease infinite;
-z-index:-2;
-}
-
-@keyframes gradient{
-0%{background-position:0%}
-50%{background-position:100%}
-100%{background-position:0%}
-}
-
-/* PETALS */
-
-.petal{
-position:fixed;
-top:-10px;
-width:12px;
-height:12px;
-background:#ff4e8a;
-border-radius:50%;
-opacity:.7;
-animation:fall linear infinite;
-}
-
-@keyframes fall{
-to{
-transform:translateY(110vh) rotate(360deg);
-}
+top:0;
+left:0;
+z-index:-1;
 }
 
 /* LOGIN */
@@ -91,43 +39,36 @@ position:absolute;
 top:50%;
 left:50%;
 transform:translate(-50%,-50%);
-backdrop-filter:blur(25px);
-background:rgba(255,255,255,.1);
-padding:50px;
-border-radius:25px;
+background:rgba(255,255,255,.08);
+backdrop-filter:blur(15px);
+padding:45px;
+border-radius:20px;
 text-align:center;
 width:90%;
-max-width:420px;
-box-shadow:0 0 60px rgba(255,255,255,.2);
+max-width:400px;
 }
 
 .login h1{
 font-family:'Great Vibes';
-font-size:48px;
+font-size:46px;
 }
 
 input{
 width:100%;
 padding:14px;
 margin-top:20px;
-border-radius:12px;
 border:none;
+border-radius:10px;
 }
 
 button{
 margin-top:20px;
-padding:14px 30px;
+padding:14px 26px;
 border:none;
-border-radius:12px;
+border-radius:10px;
 background:#ff4e8a;
 color:white;
-font-size:16px;
 cursor:pointer;
-transition:.4s;
-}
-
-button:hover{
-transform:scale(1.1);
 }
 
 /* THEME */
@@ -135,99 +76,107 @@ transform:scale(1.1);
 .theme{
 display:none;
 height:100vh;
-width:100%;
+overflow:auto;
 flex-direction:column;
-justify-content:center;
 align-items:center;
 text-align:center;
-padding:20px;
+padding:40px 20px 100px;
 }
 
 .show{
 display:flex;
-animation:cinematic 2s ease;
+animation:fade 1.5s ease;
 }
 
-@keyframes cinematic{
-from{
-opacity:0;
-transform:scale(1.2);
-filter:blur(10px);
-}
-to{
-opacity:1;
-transform:scale(1);
-filter:blur(0);
-}
+@keyframes fade{
+from{opacity:0; transform:translateY(40px);}
 }
 
 /* TITLE */
 
 .title{
 font-family:'Great Vibes';
-font-size:clamp(42px,7vw,95px);
-text-shadow:0 0 25px rgba(255,255,255,.6);
+font-size:clamp(40px,7vw,85px);
+margin-bottom:10px;
 }
 
 /* IMAGE */
 
 .hero{
 width:min(85vw,420px);
-border-radius:25px;
-margin:35px 0;
-transition:1s;
-box-shadow:0 30px 80px rgba(0,0,0,.8);
+border-radius:20px;
+margin:25px 0;
+box-shadow:0 20px 60px rgba(0,0,0,.8);
 }
 
-.hero:hover{
-transform:rotateY(12deg) scale(1.05);
+/* NOTES */
+
+.notes{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+gap:18px;
+max-width:900px;
 }
 
-/* TEXT */
+.note{
+background:rgba(255,255,255,.08);
+padding:18px;
+border-radius:16px;
+}
 
-.type{
-font-size:clamp(16px,2vw,22px);
-max-width:750px;
-line-height:1.8;
-min-height:140px;
+/* SKY TEXT */
+
+.sky{
+margin-top:60px;
+font-size:22px;
+letter-spacing:4px;
+}
+
+/* BUTTONS */
+
+.love-btn{
+margin-top:30px;
+padding:16px 30px;
+border:none;
+border-radius:40px;
+font-size:18px;
+cursor:pointer;
+background:#ff4e8a;
+color:white;
+transition:.3s;
+}
+
+.love-btn:hover{
+transform:scale(1.1);
 }
 
 /* HEARTBEAT */
 
-.glow{
-animation:heartbeat 1.2s infinite;
+.heartbeat{
+animation:beat .7s infinite;
 }
 
-@keyframes heartbeat{
+@keyframes beat{
 0%{transform:scale(1);}
-25%{transform:scale(1.05);}
+25%{transform:scale(1.15);}
 40%{transform:scale(1);}
-60%{transform:scale(1.08);}
+60%{transform:scale(1.2);}
 100%{transform:scale(1);}
 }
 
-/* SKY */
+/* SPARKLES */
 
-.sky{
-position:absolute;
-bottom:25px;
-letter-spacing:4px;
-font-size:18px;
-opacity:.9;
-}
-
-/* FIREWORK */
-
-.firework{
+.sparkle{
 position:fixed;
 width:6px;
 height:6px;
 background:white;
 border-radius:50%;
-animation:explode 1s forwards;
+pointer-events:none;
+animation:spark 1s linear forwards;
 }
 
-@keyframes explode{
+@keyframes spark{
 to{
 transform:translate(var(--x),var(--y));
 opacity:0;
@@ -239,157 +188,189 @@ opacity:0;
 
 <body>
 
-<div id="loader">
-<div class="loader-text">Loading Love...</div>
-</div>
-
-<div class="bg"></div>
+<canvas id="sky"></canvas>
 
 <!-- LOGIN -->
+
 <div class="login" id="login">
 <h1>Enter The Secret ❤️</h1>
-<p>Two passwords. Two emotions. One forever.</p>
 <input type="password" id="pass" placeholder="Enter Password">
 <button onclick="unlock()">Unlock</button>
 </div>
 
 <!-- KISS DAY -->
+
 <div id="kiss" class="theme">
-<div class="title glow">Happy Kiss Day Khushi 💋</div>
+
+<div class="title">Happy Kiss Day Khushi 💋</div>
 
 <img src="Kiss.jpg" class="hero">
 
-<div class="type" id="kissText"></div>
-
-<div class="sky">🌌 My Warm Hug is Always with You</div>
-
-<audio id="songKiss" src="song7.mp3" loop></audio>
+<div class="notes">
+<div class="note">Your kiss is where my world begins.</div>
+<div class="note">One kiss from you = lifetime happiness.</div>
+<div class="note">Your lips are my favorite destination.</div>
+<div class="note">Every kiss writes another chapter of our love story.</div>
 </div>
 
-<!-- HUG DAY -->
-<div id="hug" class="theme">
-<div class="title glow">Happy Hug Day Khushi 🤗</div>
-
-<img src="Hug.jpg" class="hero">
-
-<div class="type" id="hugText"></div>
+<button class="love-btn" onclick="sparkles(event)">
+Give Me A Kiss 💋
+</button>
 
 <div class="sky">🌌 Please Be Mine Forever</div>
 
+<audio id="songKiss" src="song7.mp3" loop></audio>
+
+</div>
+
+
+<!-- HUG DAY -->
+
+<div id="hug" class="theme">
+
+<div class="title">Happy Hug Day Khushi 🤗</div>
+
+<img src="Hug.jpg" class="hero" id="hugImg">
+
+<div class="notes">
+<div class="note">Your hug is my safest home.</div>
+<div class="note">In your arms, everything feels right.</div>
+<div class="note">Your hug heals everything.</div>
+<div class="note">I could stay there forever.</div>
+</div>
+
+<button class="love-btn" onclick="heartbeat()">
+Hug Me ❤️
+</button>
+
+<div class="sky">🌌 My Warm Hug is Always with You</div>
+
 <audio id="songHug" src="song6.mp3" loop></audio>
+
 </div>
 
 <script>
 
-/* loader */
-setTimeout(()=>{
-loader.style.display="none";
-},2500);
-
-/* petals */
-for(let i=0;i<25;i++){
-let p=document.createElement("div");
-p.className="petal";
-p.style.left=Math.random()*100+"vw";
-p.style.animationDuration=(5+Math.random()*5)+"s";
-document.body.appendChild(p);
-}
-
-/* TYPEWRITER */
-
-function typeWriter(el, text){
-let i=0;
-let speed=32;
-
-function typing(){
-if(i<text.length){
-el.innerHTML+=text.charAt(i);
-i++;
-setTimeout(typing,speed);
-}
-}
-typing();
-}
-
-/* UNLOCK */
+/* PASSWORD */
 
 function unlock(){
 
 let pass=document.getElementById("pass").value;
 
 if(pass==="Khushi"){
-
 login.style.display="none";
 kiss.classList.add("show");
-
-songKiss.volume=0;
+songKiss.volume=.7;
 songKiss.play();
-
-let fade=setInterval(()=>{
-if(songKiss.volume<0.7){
-songKiss.volume+=0.05;
-}else clearInterval(fade);
-},200);
-
-typeWriter(
-document.getElementById("kissText"),
-"Every kiss from you feels like magic — like the universe pauses just to watch us fall deeper in love.\n\nIn that tiny moment, I don’t just feel your lips… I feel your heart speaking to mine.\n\nIf forever exists anywhere, it exists in those beautiful seconds when you are close to me."
-);
-
-fireworks();
 }
 
 else if(pass==="Fagun"){
-
 login.style.display="none";
 hug.classList.add("show");
-
-songHug.volume=0;
+songHug.volume=.7;
 songHug.play();
-
-let fade=setInterval(()=>{
-if(songHug.volume<0.7){
-songHug.volume+=0.05;
-}else clearInterval(fade);
-},200);
-
-typeWriter(
-document.getElementById("hugText"),
-"When you hug me, the world fades away and suddenly everything feels right.\n\nYour arms are not just my favorite place — they are my home, my calm, my forever.\n\nIn your embrace, I find a love so safe and warm that I never want to let go."
-);
-
-fireworks();
 }
 
 else{
 alert("Wrong password ❤️");
 }
+
 }
 
-/* FIREWORKS */
+/* HEARTBEAT */
 
-function fireworks(){
+function heartbeat(){
+let img=document.getElementById("hugImg");
+img.classList.add("heartbeat");
 
-setInterval(()=>{
+if(navigator.vibrate){
+navigator.vibrate([200,100,200]);
+}
+
+setTimeout(()=>img.classList.remove("heartbeat"),2000);
+}
+
+/* SPARKLES */
+
+function sparkles(e){
 
 for(let i=0;i<25;i++){
 
-let f=document.createElement("div");
-f.className="firework";
+let s=document.createElement("div");
+s.className="sparkle";
 
-f.style.left=Math.random()*100+"vw";
-f.style.top=Math.random()*100+"vh";
+s.style.left=e.clientX+"px";
+s.style.top=e.clientY+"px";
 
-f.style.setProperty('--x',(Math.random()*200-100)+'px');
-f.style.setProperty('--y',(Math.random()*200-100)+'px');
+s.style.setProperty('--x',(Math.random()*200-100)+'px');
+s.style.setProperty('--y',(Math.random()*200-100)+'px');
 
-document.body.appendChild(f);
+document.body.appendChild(s);
 
-setTimeout(()=>f.remove(),1000);
+setTimeout(()=>s.remove(),1000);
+}
 }
 
-},2500);
+/* NIGHT SKY + CONSTELLATION */
+
+const canvas=document.getElementById("sky");
+const ctx=canvas.getContext("2d");
+
+canvas.width=innerWidth;
+canvas.height=innerHeight;
+
+let stars=[];
+
+for(let i=0;i<200;i++){
+stars.push({
+x:Math.random()*canvas.width,
+y:Math.random()*canvas.height,
+r:Math.random()*1.5
+});
 }
+
+function drawStars(){
+
+ctx.clearRect(0,0,canvas.width,canvas.height);
+
+ctx.fillStyle="white";
+
+stars.forEach(s=>{
+ctx.beginPath();
+ctx.arc(s.x,s.y,s.r,0,Math.PI*2);
+ctx.fill();
+});
+
+/* CONSTELLATION */
+
+const points=[
+[200,200],[240,260],[280,200], // K
+[340,200],[340,260],[380,230], // h
+[440,260],[470,200],[500,260], // u
+[560,200],[600,260],[640,200], // s
+[700,200],[700,260] // h+i
+];
+
+ctx.strokeStyle="rgba(255,255,255,.6)";
+ctx.lineWidth=1;
+
+points.forEach(p=>{
+ctx.beginPath();
+ctx.arc(p[0],p[1],2,0,Math.PI*2);
+ctx.fill();
+});
+
+for(let i=0;i<points.length-1;i++){
+ctx.beginPath();
+ctx.moveTo(points[i][0],points[i][1]);
+ctx.lineTo(points[i+1][0],points[i+1][1]);
+ctx.stroke();
+}
+
+requestAnimationFrame(drawStars);
+}
+
+drawStars();
 
 </script>
 
