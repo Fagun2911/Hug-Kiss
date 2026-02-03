@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Our Love Story ❤️</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+background:black;
+overflow:hidden;
+color:white;
+}
+
+/* ---------------- LOADER ---------------- */
+
+#loader{
+position:fixed;
+height:100%;
+width:100%;
+background:black;
+display:flex;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+z-index:9999;
+}
+
+.loader-text{
+font-family:'Great Vibes';
+font-size:55px;
+animation:fade 2s infinite alternate;
+}
+
+@keyframes fade{
+from{opacity:.3;}
+to{opacity:1;}
+}
+
+/* --------------- BACKGROUND -------------- */
+
+.bg{
+position:fixed;
+width:100%;
+height:100%;
+background:linear-gradient(270deg,#ff4e8a,#6a11cb,#ff4e8a);
+background-size:600% 600%;
+animation:gradient 15s ease infinite;
+z-index:-2;
+}
+
+@keyframes gradient{
+0%{background-position:0%}
+50%{background-position:100%}
+100%{background-position:0%}
+}
+
+/* ------------ ROSE PETALS ------------- */
+
+.petal{
+position:fixed;
+top:-10px;
+width:12px;
+height:12px;
+background:#ff4e8a;
+border-radius:50%;
+opacity:.7;
+animation:fall linear infinite;
+}
+
+@keyframes fall{
+to{
+transform:translateY(110vh) rotate(360deg);
+}
+}
+
+/* ------------ LOGIN ---------------- */
+
+.login{
+position:absolute;
+top:50%;
+left:50%;
+transform:translate(-50%,-50%);
+backdrop-filter:blur(25px);
+background:rgba(255,255,255,.1);
+padding:50px;
+border-radius:25px;
+text-align:center;
+width:90%;
+max-width:420px;
+box-shadow:0 0 60px rgba(255,255,255,.2);
+}
+
+.login h1{
+font-family:'Great Vibes';
+font-size:48px;
+}
+
+input{
+width:100%;
+padding:14px;
+margin-top:20px;
+border-radius:12px;
+border:none;
+}
+
+button{
+margin-top:20px;
+padding:14px 30px;
+border:none;
+border-radius:12px;
+background:#ff4e8a;
+color:white;
+font-size:16px;
+cursor:pointer;
+transition:.4s;
+}
+
+button:hover{
+transform:scale(1.1);
+}
+
+/* ------------ THEME --------------- */
+
+.theme{
+display:none;
+height:100vh;
+width:100%;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+padding:20px;
+}
+
+.show{
+display:flex;
+animation:cinematic 2s ease;
+}
+
+@keyframes cinematic{
+from{
+opacity:0;
+transform:scale(1.2);
+filter:blur(10px);
+}
+to{
+opacity:1;
+transform:scale(1);
+filter:blur(0);
+}
+}
+
+/* ---------- TITLE ---------- */
+
+.title{
+font-family:'Great Vibes';
+font-size:clamp(42px,7vw,95px);
+text-shadow:0 0 25px rgba(255,255,255,.6);
+}
+
+/* ---------- IMAGE ---------- */
+
+.hero{
+width:min(85vw,420px);
+border-radius:25px;
+margin:35px 0;
+transition:1s;
+box-shadow:0 30px 80px rgba(0,0,0,.8);
+}
+
+.hero:hover{
+transform:rotateY(12deg) scale(1.05);
+}
+
+/* ---------- TYPEWRITER ---------- */
+
+.type{
+font-size:clamp(16px,2vw,22px);
+max-width:750px;
+line-height:1.6;
+min-height:80px;
+}
+
+/* -------- HEARTBEAT GLOW ------- */
+
+.glow{
+animation:heartbeat 1.2s infinite;
+}
+
+@keyframes heartbeat{
+0%{transform:scale(1);}
+25%{transform:scale(1.05);}
+40%{transform:scale(1);}
+60%{transform:scale(1.08);}
+100%{transform:scale(1);}
+}
+
+/* -------- SKY MESSAGE -------- */
+
+.sky{
+position:absolute;
+bottom:25px;
+letter-spacing:3px;
+opacity:.85;
+}
+
+/* -------- FIREWORK -------- */
+
+.firework{
+position:fixed;
+width:6px;
+height:6px;
+background:white;
+border-radius:50%;
+animation:explode 1s forwards;
+}
+
+@keyframes explode{
+to{
+transform:translate(var(--x),var(--y));
+opacity:0;
+}
+}
+
+</style>
+</head>
+
+<body>
+
+<div id="loader">
+<div class="loader-text">Loading Love...</div>
+</div>
+
+<div class="bg"></div>
+
+<!-- LOGIN -->
+<div class="login" id="login">
+<h1>Enter The Secret ❤️</h1>
+<p>Two passwords. Two emotions. One forever.</p>
+<input type="password" id="pass" placeholder="Enter Password">
+<button onclick="unlock()">Unlock</button>
+</div>
+
+<!-- KISS -->
+<div id="kiss" class="theme">
+<div class="title glow">Happy Kiss Day Khushi 💋</div>
+
+<img src="Kiss.jpg" class="hero">
+
+<div class="type" id="kissText"></div>
+
+<div class="sky">I Love You Khushi — Beyond Infinity ✨</div>
+
+<audio id="songKiss" src="song6.mp3" loop></audio>
+</div>
+
+<!-- HUG -->
+<div id="hug" class="theme">
+<div class="title glow">Happy Hug Day Khushi 🤗</div>
+
+<img src="Hug.jpg" class="hero">
+
+<div class="type" id="hugText"></div>
+
+<div class="sky">Forever Yours — Fagun ❤️</div>
+
+<audio id="songHug" src="song7.mp3" loop></audio>
+</div>
+
+<script>
+
+/* loader */
+setTimeout(()=>{
+document.getElementById("loader").style.display="none";
+},2500);
+
+
+/* petals */
+for(let i=0;i<25;i++){
+let p=document.createElement("div");
+p.className="petal";
+p.style.left=Math.random()*100+"vw";
+p.style.animationDuration=(5+Math.random()*5)+"s";
+document.body.appendChild(p);
+}
+
+/* TYPEWRITER */
+
+function typeWriter(el, text){
+let i=0;
+let speed=35;
+
+function typing(){
+if(i<text.length){
+el.innerHTML+=text.charAt(i);
+i++;
+setTimeout(typing,speed);
+}
+}
+typing();
+}
+
+/* UNLOCK */
+
+function unlock(){
+
+let pass=document.getElementById("pass").value;
+
+if(pass==="Khushi"){
+
+login.style.display="none";
+kiss.classList.add("show");
+
+songKiss.volume=0;
+songKiss.play();
+
+let fade=setInterval(()=>{
+if(songKiss.volume<0.7){
+songKiss.volume+=0.05;
+}else clearInterval(fade);
+},200);
+
+typeWriter(
+document.getElementById("kissText"),
+"A kiss from you feels like time stops... like the universe pauses just to watch us fall deeper in love. In that tiny moment, I find eternity."
+);
+
+fireworks();
+
+}
+
+else if(pass==="Fagun"){
+
+login.style.display="none";
+hug.classList.add("show");
+
+songHug.volume=0;
+songHug.play();
+
+let fade=setInterval(()=>{
+if(songHug.volume<0.7){
+songHug.volume+=0.05;
+}else clearInterval(fade);
+},200);
+
+typeWriter(
+document.getElementById("hugText"),
+"When you hug me, the world disappears. Your arms are my safest home, my calm, my forever."
+);
+
+fireworks();
+}
+
+else{
+alert("Wrong password ❤️");
+}
+}
+
+/* FIREWORKS */
+
+function fireworks(){
+
+setInterval(()=>{
+
+for(let i=0;i<25;i++){
+
+let f=document.createElement("div");
+f.className="firework";
+
+f.style.left=Math.random()*100+"vw";
+f.style.top=Math.random()*100+"vh";
+
+f.style.setProperty('--x',(Math.random()*200-100)+'px');
+f.style.setProperty('--y',(Math.random()*200-100)+'px');
+
+document.body.appendChild(f);
+
+setTimeout(()=>f.remove(),1000);
+}
+
+},2500);
+}
+
+</script>
+
+</body>
+</html>
