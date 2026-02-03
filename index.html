@@ -23,7 +23,7 @@ overflow:hidden;
 color:white;
 }
 
-/* ---------------- LOADER ---------------- */
+/* LOADER */
 
 #loader{
 position:fixed;
@@ -33,7 +33,6 @@ background:black;
 display:flex;
 justify-content:center;
 align-items:center;
-flex-direction:column;
 z-index:9999;
 }
 
@@ -48,7 +47,7 @@ from{opacity:.3;}
 to{opacity:1;}
 }
 
-/* --------------- BACKGROUND -------------- */
+/* BACKGROUND */
 
 .bg{
 position:fixed;
@@ -66,7 +65,7 @@ z-index:-2;
 100%{background-position:0%}
 }
 
-/* ------------ ROSE PETALS ------------- */
+/* PETALS */
 
 .petal{
 position:fixed;
@@ -85,7 +84,7 @@ transform:translateY(110vh) rotate(360deg);
 }
 }
 
-/* ------------ LOGIN ---------------- */
+/* LOGIN */
 
 .login{
 position:absolute;
@@ -131,7 +130,7 @@ button:hover{
 transform:scale(1.1);
 }
 
-/* ------------ THEME --------------- */
+/* THEME */
 
 .theme{
 display:none;
@@ -162,7 +161,7 @@ filter:blur(0);
 }
 }
 
-/* ---------- TITLE ---------- */
+/* TITLE */
 
 .title{
 font-family:'Great Vibes';
@@ -170,7 +169,7 @@ font-size:clamp(42px,7vw,95px);
 text-shadow:0 0 25px rgba(255,255,255,.6);
 }
 
-/* ---------- IMAGE ---------- */
+/* IMAGE */
 
 .hero{
 width:min(85vw,420px);
@@ -184,16 +183,16 @@ box-shadow:0 30px 80px rgba(0,0,0,.8);
 transform:rotateY(12deg) scale(1.05);
 }
 
-/* ---------- TYPEWRITER ---------- */
+/* TEXT */
 
 .type{
 font-size:clamp(16px,2vw,22px);
 max-width:750px;
-line-height:1.6;
-min-height:80px;
+line-height:1.8;
+min-height:140px;
 }
 
-/* -------- HEARTBEAT GLOW ------- */
+/* HEARTBEAT */
 
 .glow{
 animation:heartbeat 1.2s infinite;
@@ -207,16 +206,17 @@ animation:heartbeat 1.2s infinite;
 100%{transform:scale(1);}
 }
 
-/* -------- SKY MESSAGE -------- */
+/* SKY */
 
 .sky{
 position:absolute;
 bottom:25px;
-letter-spacing:3px;
-opacity:.85;
+letter-spacing:4px;
+font-size:18px;
+opacity:.9;
 }
 
-/* -------- FIREWORK -------- */
+/* FIREWORK */
 
 .firework{
 position:fixed;
@@ -253,7 +253,7 @@ opacity:0;
 <button onclick="unlock()">Unlock</button>
 </div>
 
-<!-- KISS -->
+<!-- KISS DAY -->
 <div id="kiss" class="theme">
 <div class="title glow">Happy Kiss Day Khushi 💋</div>
 
@@ -261,12 +261,12 @@ opacity:0;
 
 <div class="type" id="kissText"></div>
 
-<div class="sky">I Love You Khushi — Beyond Infinity ✨</div>
+<div class="sky">🌌 My Warm Hug is Always with You</div>
 
-<audio id="songKiss" src="song6.mp3" loop></audio>
+<audio id="songKiss" src="song7.mp3" loop></audio>
 </div>
 
-<!-- HUG -->
+<!-- HUG DAY -->
 <div id="hug" class="theme">
 <div class="title glow">Happy Hug Day Khushi 🤗</div>
 
@@ -274,18 +274,17 @@ opacity:0;
 
 <div class="type" id="hugText"></div>
 
-<div class="sky">Forever Yours — Fagun ❤️</div>
+<div class="sky">🌌 Please Be Mine Forever</div>
 
-<audio id="songHug" src="song7.mp3" loop></audio>
+<audio id="songHug" src="song6.mp3" loop></audio>
 </div>
 
 <script>
 
 /* loader */
 setTimeout(()=>{
-document.getElementById("loader").style.display="none";
+loader.style.display="none";
 },2500);
-
 
 /* petals */
 for(let i=0;i<25;i++){
@@ -300,7 +299,7 @@ document.body.appendChild(p);
 
 function typeWriter(el, text){
 let i=0;
-let speed=35;
+let speed=32;
 
 function typing(){
 if(i<text.length){
@@ -334,11 +333,10 @@ songKiss.volume+=0.05;
 
 typeWriter(
 document.getElementById("kissText"),
-"A kiss from you feels like time stops... like the universe pauses just to watch us fall deeper in love. In that tiny moment, I find eternity."
+"Every kiss from you feels like magic — like the universe pauses just to watch us fall deeper in love.\n\nIn that tiny moment, I don’t just feel your lips… I feel your heart speaking to mine.\n\nIf forever exists anywhere, it exists in those beautiful seconds when you are close to me."
 );
 
 fireworks();
-
 }
 
 else if(pass==="Fagun"){
@@ -357,7 +355,7 @@ songHug.volume+=0.05;
 
 typeWriter(
 document.getElementById("hugText"),
-"When you hug me, the world disappears. Your arms are my safest home, my calm, my forever."
+"When you hug me, the world fades away and suddenly everything feels right.\n\nYour arms are not just my favorite place — they are my home, my calm, my forever.\n\nIn your embrace, I find a love so safe and warm that I never want to let go."
 );
 
 fireworks();
